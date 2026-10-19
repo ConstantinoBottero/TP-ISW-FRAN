@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Jost:wght@300;400;500&display=swap');
+
+/* Paleta PO — https://coolors.co/palette/386641-6a994e-a7c957-f2e8cf-bc4749 */
+:root {
+  --forest:  #386641;
+  --sage:    #6a994e;
+  --moss:    #a7c957;
+  --cream:   #f2e8cf;
+  --sand:    #ddd4bc;
+  --terra:   #bc4749;
+  --ink:     #2d4a32;
+  --muted:   #5c7354;
+  --error:   #bc4749;
+  --white:   #ffffff;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background-color: var(--forest);
+  background-image:
+    radial-gradient(ellipse 90% 55% at 8%  80%, rgba(106,153,78,.38) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 45% at 92% 12%, rgba(188,71,73,.12) 0%, transparent 55%);
+  min-height: 100vh;
+  color: var(--ink);
+}
+
+/* ── Page Header ─────────────────────────────────── */
+.page-header {
+  position: relative;
+  text-align: center;
+  padding: 4rem 1.5rem 3rem;
+}
+
+.page-header::after {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 1px;
+  background: var(--moss);
+  margin: 1.75rem auto 0;
+  opacity: .5;
+}
+
+.park-tag {
+  display: block;
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 1rem;
+}
+
+.page-header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1;
+  letter-spacing: -.01em;
+}
+
+.page-header .subtitle {
+  font-size: .8rem;
+  font-weight: 300;
+  color: rgba(242,232,207,.45);
+  letter-spacing: .12em;
+  margin-top: .6rem;
+}
+
+/* ── Layout ─────────────────────────────────────── */
+.main-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: .25rem 1.25rem 6rem;
+}
+
+/* ── Primary Button ─────────────────────────────── */
+[data-testid="btn-inscribirse"] {
+  display: block;
+  width: 100%;
+  padding: 1.1rem 2rem;
+  background: var(--terra);
+  color: var(--white);
+  border: none;
+  font-family: 'Jost', sans-serif;
+  font-size: .76rem;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+
+[data-testid="btn-inscribirse"]:hover {
+  background: #a33d3f;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(188,71,73,.42);
+}
+
+[data-testid="btn-inscribirse"]:active { transform: translateY(0); }
+
+/* ── Form Card ──────────────────────────────────── */
+[data-testid="formulario-inscripcion"] {
+  background: var(--cream);
+  border-radius: 3px;
+  padding: 2.25rem 2.5rem 2.75rem;
+  margin-top: 1.25rem;
+  box-shadow: 0 28px 70px rgba(0,0,0,.38), 0 4px 14px rgba(0,0,0,.16);
+  animation: revealCard .5s cubic-bezier(.16,1,.3,1) both;
+}
+
+@keyframes revealCard {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.form-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.65rem;
+  font-weight: 400;
+  color: var(--forest);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--sand);
+  letter-spacing: .01em;
+}
+
+/* ── Field Groups ────────────────────────────────── */
+.field-group { margin-bottom: 1.5rem; }
+
+.field-label {
+  display: block;
+  font-size: .65rem;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: .4rem;
+}
+
+/* ── Selects (main form) ─────────────────────────── */
+[data-testid="formulario-inscripcion"] select[name="actividad"],
+[data-testid="formulario-inscripcion"] select[name="horario"] {
+  display: block;
+  width: 100%;
+  padding: .65rem 2rem .65rem 0;
+  border: none;
+  border-bottom: 1.5px solid var(--sand);
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236a994e' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right .25rem center;
+  font-family: 'Jost', sans-serif;
+  font-size: .95rem;
+  color: var(--ink);
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color .2s;
+}
+
+[data-testid="formulario-inscripcion"] select[name="actividad"]:focus,
+[data-testid="formulario-inscripcion"] select[name="horario"]:focus {
+  outline: none;
+  border-bottom-color: var(--terra);
+}
+
+/* ── Cantidad input ──────────────────────────────── */
+[data-testid="formulario-inscripcion"] input[name="cantidad"] {
+  display: block;
+  width: 100%;
+  padding: .65rem 0;
+  border: none;
+  border-bottom: 1.5px solid var(--sand);
+  background: transparent;
+  font-family: 'Jost', sans-serif;
+  font-size: .95rem;
+  color: var(--ink);
+  transition: border-color .2s;
+  margin-bottom: 1rem;
+}
+
+[data-testid="formulario-inscripcion"] input[name="cantidad"]:focus {
+  outline: none;
+  border-bottom-color: var(--terra);
+}
+
+[data-testid="formulario-inscripcion"] input[name="cantidad"]::placeholder {
+  color: var(--muted);
+  font-weight: 300;
+  font-size: .88rem;
+}
+
+[data-testid="formulario-inscripcion"] input[name="cantidad"]:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+/* ── Terms & Conditions ──────────────────────────── */
+[data-testid="terminos-y-condiciones"] {
+  background: rgba(106,153,78,.07);
+  border-left: 3px solid var(--sage);
+  border-radius: 0 2px 2px 0;
+  padding: 1.25rem 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.terms-title {
+  font-size: .63rem;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: .65rem;
+}
+
+[data-testid="terminos-y-condiciones"] p {
+  font-size: .85rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: .9rem;
+}
+
+.terms-accept {
+  display: flex !important;
+  align-items: center !important;
+  gap: .55rem !important;
+  font-size: .82rem !important;
+  font-weight: 500 !important;
+  color: var(--forest) !important;
+  cursor: pointer !important;
+}
+
+.terms-accept input[type="radio"] {
+  accent-color: var(--terra);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── Error message ───────────────────────────────── */
+.mensaje-error {
+  font-size: .8rem !important;
+  color: var(--error) !important;
+  padding: .55rem .9rem !important;
+  background: rgba(188,71,73,.06) !important;
+  border-left: 2px solid var(--error) !important;
+  border-radius: 0 2px 2px 0 !important;
+  margin-top: .5rem !important;
+  line-height: 1.5 !important;
+}
+
+/* ── Participant Forms ───────────────────────────── */
+[data-testid="formulario-participante"] {
+  background: var(--white);
+  border: 1px solid var(--sand);
+  border-radius: 2px;
+  padding: 1.5rem;
+  margin-bottom: .875rem;
+  animation: revealCard .3s cubic-bezier(.16,1,.3,1) both;
+}
+
+[data-testid="formulario-participante"] strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--forest);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid var(--sand);
+}
+
+[data-testid="formulario-participante"] .field-group {
+  margin-bottom: 1rem;
+}
+
+[data-testid="formulario-participante"] input[type="text"],
+[data-testid="formulario-participante"] input[type="number"],
+[data-testid="formulario-participante"] select[name="talla"] {
+  display: block;
+  width: 100%;
+  padding: .55rem 0;
+  border: none;
+  border-bottom: 1.5px solid var(--sand);
+  background: transparent;
+  font-family: 'Jost', sans-serif;
+  font-size: .9rem;
+  color: var(--ink);
+  transition: border-color .2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+[data-testid="formulario-participante"] select[name="talla"] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236a994e' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right .25rem center;
+  padding-right: 1.5rem;
+  cursor: pointer;
+}
+
+[data-testid="formulario-participante"] input:focus,
+[data-testid="formulario-participante"] select:focus {
+  outline: none;
+  border-bottom-color: var(--terra);
+}
+
+[data-testid="formulario-participante"] input::placeholder {
+  color: var(--muted);
+  font-weight: 300;
+  font-size: .84rem;
+}
+
+[data-testid="formulario-participante"] select:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+/* ── Secondary Button ────────────────────────────── */
+[data-testid="btn-agregar-info-participantes"] {
+  display: block;
+  width: 100%;
+  padding: .9rem 1.5rem;
+  background: transparent;
+  color: var(--forest);
+  border: 1.5px solid var(--sage);
+  font-family: 'Jost', sans-serif;
+  font-size: .73rem;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background .2s, color .2s, border-color .2s;
+  margin: 1rem 0;
+}
+
+[data-testid="btn-agregar-info-participantes"]:hover {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: var(--cream);
+}
+
+/* ── Confirm Button ──────────────────────────────── */
+[data-testid="btn-confirmar-inscripcion"] {
+  display: block;
+  width: 100%;
+  padding: 1.05rem 2rem;
+  background: var(--forest);
+  color: var(--cream);
+  border: none;
+  font-family: 'Jost', sans-serif;
+  font-size: .76rem;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background .22s, transform .22s, box-shadow .22s;
+  margin-top: .5rem;
+}
+
+[data-testid="btn-confirmar-inscripcion"]:hover {
+  background: var(--sage);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(56,102,65,.3);
+}
+
+[data-testid="btn-confirmar-inscripcion"]:active { transform: translateY(0); }
+
+/* ── Usuario logueado ────────────────────────────── */
+.usuario-logueado {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+}
+
+.usuario-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--terra);
+  color: var(--white);
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .04em;
+  flex-shrink: 0;
+}
+
+.usuario-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.usuario-nombre {
+  font-size: .78rem;
+  font-weight: 500;
+  color: var(--cream);
+  line-height: 1.2;
+}
+
+.usuario-email {
+  font-size: .67rem;
+  font-weight: 300;
+  color: rgba(242,232,207,.5);
+  line-height: 1.2;
+}
+
+.usuario-fecha {
+  font-size: .62rem;
+  font-weight: 400;
+  color: var(--moss);
+  line-height: 1.2;
+  margin-top: .15rem;
+  letter-spacing: .04em;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 600px) {
+  [data-testid="formulario-inscripcion"] { padding: 1.75rem 1.25rem 2rem; }
+  .page-header { padding: 2.75rem 1.25rem 2.25rem; }
+  .usuario-email { display: none; }
+}

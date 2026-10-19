@@ -1,0 +1,56 @@
+{
+  "actividades": [
+    {
+      "id": "tirolesa",
+      "nombre": "Tirolesa",
+      "requiereTalla": true,
+      "terminosYCondiciones": "El participante acepta que la actividad implica riesgo físico. Se requiere peso mínimo de 30kg y máximo de 120kg. El uso del equipo de seguridad es obligatorio.",
+      "horarios": [
+        { "id": "tirolesa-1", "hora": "09:00", "cupoTotal": 10, "cuposDisponibles": 8 },
+        { "id": "tirolesa-2", "hora": "11:00", "cupoTotal": 10, "cuposDisponibles": 5 },
+        { "id": "tirolesa-3", "hora": "14:00", "cupoTotal": 10, "cuposDisponibles": 0 }
+      ]
+    },
+    {
+      "id": "safari",
+      "nombre": "Safari",
+      "requiereTalla": false,
+      "terminosYCondiciones": "El participante acepta mantener silencio y seguir las instrucciones del guía en todo momento. Está prohibido alimentar o molestar a los animales.",
+      "horarios": [
+        { "id": "safari-1", "hora": "09:00", "cupoTotal": 15, "cuposDisponibles": 15 },
+        { "id": "safari-2", "hora": "11:00", "cupoTotal": 15, "cuposDisponibles": 3 },
+        { "id": "safari-3", "hora": "15:00", "cupoTotal": 15, "cuposDisponibles": 0 }
+      ]
+    },
+    {
+      "id": "palestra",
+      "nombre": "Palestra",
+      "requiereTalla": true,
+      "terminosYCondiciones": "El participante acepta que la actividad de escalada implica esfuerzo físico. Se requiere el uso del arnés provisto. Personas con problemas cardíacos deben presentar autorización médica.",
+      "horarios": [
+        { "id": "palestra-1", "hora": "09:00", "cupoTotal": 20, "cuposDisponibles": 20 },
+        { "id": "palestra-2", "hora": "13:00", "cupoTotal": 20, "cuposDisponibles": 10 },
+        { "id": "palestra-3", "hora": "16:00", "cupoTotal": 20, "cuposDisponibles": 7 }
+      ]
+    },
+    {
+      "id": "jardineria",
+      "nombre": "Jardinería",
+      "requiereTalla": false,
+      "terminosYCondiciones": "El participante acepta hacer uso responsable de las herramientas provistas. Menores de 12 años deben estar acompañados por un adulto.",
+      "horarios": [
+        { "id": "jardineria-1", "hora": "10:00", "cupoTotal": 12, "cuposDisponibles": 12 },
+        { "id": "jardineria-2", "hora": "14:00", "cupoTotal": 12, "cuposDisponibles": 6 }
+      ]
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "1",
+      "username": "fran",
+      "email": "franreinaudo@gmail.com",
+      "nombreCompleto": "Francisco Reinaudo"
+    }
+  ],
+  "inscripciones": []
+}
